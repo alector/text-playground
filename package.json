@@ -1,0 +1,12 @@
+{
+  "name": "text-playground",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "version": "1.0.0",
+  "description": "translate & transform texts",
+  "main": "index.js",
+  "repository": "git@github.com:alector/text-playground.git",
+  "author": "Panos",
+  "license": "MIT"
+}
