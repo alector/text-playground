@@ -32,3 +32,34 @@ exports.getFilesRecursive = cur_path => {
 
   return files
 }
+
+exports.getFoldersRecursive = cur_path => {
+  // find all ENTRIES = FILES + FOLDERS in current path
+  // print({ cur_path })
+
+  const entries = fs.readdirSync(cur_path, { withFileTypes: true })
+  // print({ entries })
+
+  // isolate the FOLDERS from the ENTRIES in current path
+
+  const folders = entries
+    .filter(folder => folder.isDirectory())
+    .map(folder => {
+      parentpath = cur_path
+      foldername = folder.name
+      folderpath = path.join(parentpath, foldername)
+      return {
+        parentpath,
+        foldername,
+        folderpath
+      }
+    })
+
+  // print({ folders })
+
+  for (const folder of folders) {
+    folders.push(...this.getFoldersRecursive(folder.folderpath))
+  }
+
+  return folders
+}
