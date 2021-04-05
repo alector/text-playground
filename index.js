@@ -1,6 +1,5 @@
 const path = require("path")
 const { getFilesRecursive, getFoldersRecursive } = require("./src/getfiles")
-
 const print = x => console.log(x)
 print("Hello")
 
@@ -12,5 +11,9 @@ print({ static_path })
 // allfiles = getFilesRecursive(static_path)
 // console.log(allfiles)
 
-allfolders = getFoldersRecursive(static_path)
-console.log({ allfolders })
+// allfolders = getFoldersRecursive(static_path)
+// console.log({ allfolders })
+
+
+allEntries = getFilesRecursive(static_path)
+console.log(allEntries)
