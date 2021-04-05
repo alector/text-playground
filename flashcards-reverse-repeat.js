@@ -16,7 +16,6 @@ const main = (input_file, output_file) => {
 
 
     )
-
     console.log(FlashCardsFinal)
     finalTxt = FlashCardsFinal.join("\n")
     fs.writeFileSync(output_file, finalTxt, 'utf-8');
