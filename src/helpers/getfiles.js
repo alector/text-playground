@@ -6,7 +6,6 @@ const print = x => console.log(x)
 const getFilesRecursive = cur_path => {
     // find all ENTRIES = FILES + FOLDERS in current path
     const entries = fs.readdirSync(cur_path, { withFileTypes: true })
-    print({ cur_path })
 
     // isolate the FILES from the ENTRIES in current path
     const files = entries
@@ -24,7 +23,7 @@ const getFilesRecursive = cur_path => {
     const folders = entries.filter(folder => folder.isDirectory())
 
     for (const folder of folders) {
-        console.log(folder) // { folder: Dirent { name: 'test-folder', [Symbol(type)]: 2 } }
+        // { folder: Dirent { name: 'test-folder', [Symbol(type)]: 2 } }
 
         dirPath = path.join(cur_path, folder.name)
         files.push(...getFilesRecursive(dirPath))

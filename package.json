@@ -11,6 +11,10 @@
   "license": "MIT",
   "dependencies": {
     "directory-tree": "^2.2.7",
-    "readline-sync": "^1.4.10"
+    "log-color-highlight": "^1.6.0",
+    "markdown-it": "^12.0.4",
+    "prince": "^1.8.6",
+    "readline-sync": "^1.4.10",
+    "showdown": "^1.9.1"
   }
 }

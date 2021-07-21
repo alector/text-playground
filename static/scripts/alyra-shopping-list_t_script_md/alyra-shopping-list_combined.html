@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+
+<style type="text/css">
+
+    @page {
+        @bottom {
+            content: counter(page)
+        }
+    }
+
+@media print {
+    h2 {
+       page-break-before: always;
+
+    }
+    .number {
+    background:#ccc;
+    border-radius: 5px;
+    padding:2px;
+
+    }
+    xmp {
+        white-space: pre-wrap;
+        font-family: "Monaco"; 
+        font-size:14px;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        font-family: "Monaco"; 
+        font-size:14px;
+
+    }
+
+    code {
+        font-family: "Monaco"; 
+        font-size:14px;
+
+    }
+
+blockquote p {
+    text-align:center;
+    margin-left:0;
+    margin-right:0;
+    font-size:20px;
+    border:1px solid black;
+    width:100%;
+}
+}
+
+h2, blockquote {
+font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+
+}
+
+.fas,
+            .far {
+                margin-right: 5px;
+            }
+            .folder {
+                margin-bottom:5px;
+                font-weight: bold;
+            }
+
+            .file {
+                padding-left: 0.3rem;
+                                margin-bottom:5px;
+
+            }
+
+            .x {
+                margin-left: 1rem;
+            }
+
+            .xx {
+                margin-left: 2rem;
+            }
+
+            .xxx {
+                margin-left: 3rem;
+            }
+
+         .xxxx {
+                margin-left: 4rem;
+            }
+
+            .xxxxx {
+                margin-left: 5rem;
+            }
+
+            .xxxxxx {
+                margin-left: 6rem;
+            }
+
+
+</style>
+</head>
+<body>  <h1><i class="fas fa-code"></i>  alyra-shopping-list</h1>
+<h2 id="contents">Contents</h2>
+<div class="filetree"><div class="folder x"><span class="fas fa-folder"></span>alyra-shopping-list</div>
+<div class="file x"><span class="far fa-file-alt"></span>package.json</div>
+<div class="folder xx"><span class="fas fa-folder"></span>public</div>
+<div class="file xx"><span class="far fa-file-alt"></span>index.html</div>
+<div class="file xx"><span class="far fa-file-alt"></span>manifest.json</div>
+<div class="file xx"><span class="far fa-file-alt"></span>robots.txt</div>
+<div class="folder xx"><span class="fas fa-folder"></span>src</div>
+<div class="file xx"><span class="far fa-file-alt"></span>App.css</div>
+<div class="file xx"><span class="far fa-file-alt"></span>App.js</div>
+<div class="file xx"><span class="far fa-file-alt"></span>App.test.js</div>
+<div class="file xx"><span class="far fa-file-alt"></span>index.css</div>
+<div class="file xx"><span class="far fa-file-alt"></span>index.html</div>
+<div class="file xx"><span class="far fa-file-alt"></span>index.js</div>
+<div class="file xx"><span class="far fa-file-alt"></span>reportWebVitals.js</div>
+<div class="file xx"><span class="far fa-file-alt"></span>setupTests.js</div>
+<div class="folder xxx"><span class="fas fa-folder"></span>components</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>AddPopularProduct.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>AddPopularProductForm.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>Header.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>Product.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>ShoppingApp.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>ShoppingList.js</div></div>
+<h2 id="packagejson">package.json</h2>
+<blockquote>
+  <p>/package.json</p>
+</blockquote>
+<pre><code class="json language-json">{
+  "name": "alyra-shopping-list",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fontsource/kiwi-maru": "^4.2.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "bootstrap": "^5.0.0-beta3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "&gt;0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+</code></pre>
+<h2 id="indexhtml">index.html</h2>
+<blockquote>
+  <p>/public/index.html</p>
+</blockquote>
+<pre><code class="html language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;link rel="icon" href="%PUBLIC_URL%/favicon.ico" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;meta name="theme-color" content="#000000" /&gt;
+    &lt;meta
+      name="description"
+      content="Web site created using create-react-app"
+    /&gt;
+    &lt;link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel="manifest" href="%PUBLIC_URL%/manifest.json" /&gt;
+    &lt;!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+    &lt;title&gt;React App&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+    &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="manifestjson">manifest.json</h2>
+<blockquote>
+  <p>/public/manifest.json</p>
+</blockquote>
+<pre><code class="json language-json">{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+</code></pre>
+<h2 id="robotstxt">robots.txt</h2>
+<blockquote>
+  <p>/public/robots.txt</p>
+</blockquote>
+<pre><code class="txt language-txt"># https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+</code></pre>
+<h2 id="appcss">App.css</h2>
+<blockquote>
+  <p>/src/App.css</p>
+</blockquote>
+<pre><code class="css language-css">.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</code></pre>
+<h2 id="appjs">App.js</h2>
+<blockquote>
+  <p>/src/App.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+// import logo from './logo.svg'
+import './App.css'
+import Header from './components/Header'
+import ShoppingApp from './components/ShoppingApp'
+
+function App() {
+    return (
+        &lt;div className="container"&gt;
+            &lt;Header /&gt;
+            &lt;ShoppingApp /&gt;
+        &lt;/div&gt;
+    )
+}
+
+export default App
+</code></pre>
+<h2 id="apptestjs">App.test.js</h2>
+<blockquote>
+  <p>/src/App.test.js</p>
+</blockquote>
+<pre><code class="js language-js">import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () =&gt; {
+  render(&lt;App /&gt;);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+</code></pre>
+<h2 id="indexcss">index.css</h2>
+<blockquote>
+  <p>/src/index.css</p>
+</blockquote>
+<pre><code class="css language-css">body {
+    font-family: 'Kiwi Maru', sans-serif !important;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+</code></pre>
+<h2 id="indexhtml-1">index.html</h2>
+<blockquote>
+  <p>/src/index.html</p>
+</blockquote>
+<pre><code class="html language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;link rel="icon" href="%PUBLIC_URL%/favicon.ico" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;meta name="theme-color" content="#000000" /&gt;
+    &lt;meta
+      name="description"
+      content="Web site created using create-react-app"
+    /&gt;
+    &lt;link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /&gt;
+    &lt;!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+    &lt;link rel="manifest" href="%PUBLIC_URL%/manifest.json" /&gt;
+    &lt;link rel="stylesheet" href="./index.css" /&gt;
+
+    &lt;title&gt;Alyra Shopping List&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="indexjs">index.js</h2>
+<blockquote>
+  <p>/src/index.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import 'bootstrap/dist/css/bootstrap.css'
+import '@fontsource/kiwi-maru'
+import './index.css'
+
+import reportWebVitals from './reportWebVitals'
+// import '@fontsource/kiwi-maru'
+
+ReactDOM.render(
+    &lt;React.StrictMode&gt;
+        &lt;App /&gt;
+    &lt;/React.StrictMode&gt;,
+    document.getElementById('root')
+)
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals()
+</code></pre>
+<h2 id="reportwebvitalsjs">reportWebVitals.js</h2>
+<blockquote>
+  <p>/src/reportWebVitals.js</p>
+</blockquote>
+<pre><code class="js language-js">const reportWebVitals = onPerfEntry =&gt; {
+  if (onPerfEntry &amp;&amp; onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) =&gt; {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+</code></pre>
+<h2 id="setuptestsjs">setupTests.js</h2>
+<blockquote>
+  <p>/src/setupTests.js</p>
+</blockquote>
+<pre><code class="js language-js">// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+</code></pre>
+<h2 id="addpopularproductjs">AddPopularProduct.js</h2>
+<blockquote>
+  <p>/src/components/AddPopularProduct.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+import AddPopularProductForm from './AddPopularProductForm'
+
+const AddPopularProduct = (props) =&gt; {
+    const { shopList, addToShopList } = props
+    const populars = [
+        { text: 'pain', emoji: '🥖' },
+        { text: 'lait', emoji: '🥛' },
+        { text: 'pizza', emoji: '🍕' },
+        { text: 'salade', emoji: '🥬' },
+        { text: 'oranges', emoji: '🍊' },
+    ]
+
+    return (
+        &lt;section&gt;
+            &lt;div className="bg-light border p-4"&gt;
+                &lt;h2 class="mb-3 h4"&gt;Ajouter un produit :&lt;/h2&gt;
+
+                &lt;AddPopularProductForm
+                    shopList={shopList}
+                    addToShopList={addToShopList}
+                /&gt;
+
+                &lt;h3 className="h5"&gt;Avez vous besoin de ?&lt;/h3&gt;
+                &lt;div className="mb-3 d-flex flex-wrap align-items-center"&gt;
+                    {populars.map((el) =&gt; (
+                        &lt;button
+                            key={el.text}
+                            className="btn btn-outline-success me-2 mb-2 d-flex align-items-center"
+                            onClick={() =&gt; addToShopList(el.text)}
+                            disabled={shopList.includes(el.text)}
+                        &gt;
+                            {el.text}{' '}
+                            &lt;span className="fs-1" role="img" aria-hidden&gt;
+                                {el.emoji}
+                            &lt;/span&gt;
+                        &lt;/button&gt;
+                    ))}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    )
+}
+export default AddPopularProduct
+</code></pre>
+<h2 id="addpopularproductformjs">AddPopularProductForm.js</h2>
+<blockquote>
+  <p>/src/components/AddPopularProductForm.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+const AddPopularProductForm = (props) =&gt; {
+  const { shopList, addToShopList } = props
+
+  const handleFormSubmit = (event) =&gt; {
+    // nous devons empêcher l'action par défaut de notre formulaire
+    event.preventDefault()
+    // récupérer la valeur depuis le champ input#product
+    const newProduct = event.target.elements.product.value
+    // s'assurer que la liste contient des produits uniques
+    console.log('shopList:', shopList)
+    console.log('newProduct:', newProduct)
+
+    if (shopList.includes(newProduct)) {
+      alert(`${newProduct} est déjà sur la liste`)
+    } else {
+      addToShopList(newProduct)
+    }
+    // vider l'input (remettre le formulaire à zéro)
+    event.target.reset()
+  }
+
+  return (
+    &lt;form className="mb-5" onSubmit={handleFormSubmit}&gt;
+      &lt;div className="input-group mb-2"&gt;
+        &lt;input
+          id="product"
+          className="form-control"
+          aria-label="Ajouter sur la liste"
+          required
+        /&gt;
+        &lt;button type="submit" className="btn btn-success btn-lg"&gt;
+          J'ajoute !
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  )
+}
+
+export default AddPopularProductForm
+</code></pre>
+<h2 id="headerjs">Header.js</h2>
+<blockquote>
+  <p>/src/components/Header.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+const Header = () =&gt; {
+    return (
+        &lt;header className="text-center my-5"&gt;
+            &lt;h1&gt;Ma liste des courses&lt;/h1&gt;
+            &lt;p lang="en"&gt;Let's go shopping! Yay !!&lt;/p&gt;
+        &lt;/header&gt;
+    )
+}
+
+export default Header
+</code></pre>
+<h2 id="productjs">Product.js</h2>
+<blockquote>
+  <p>/src/components/Product.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+const Product = (props) =&gt; {
+    const { product, removeFromShopList } = props
+
+    const handleButtonClick = () =&gt; {
+        removeFromShopList(product)
+    }
+
+    return (
+        &lt;div className="d-flex align-items-center justify-content-between"&gt;
+            {product}
+            &lt;button
+                className="btn btn-sm btn-warning"
+                onClick={handleButtonClick}
+            &gt;
+                &lt;span role="img" aria-hidden&gt;
+                    ✖️
+                &lt;/span&gt;{' '}
+                ok
+            &lt;/button&gt;
+        &lt;/div&gt;
+    )
+}
+
+export default Product
+</code></pre>
+<h2 id="shoppingappjs">ShoppingApp.js</h2>
+<blockquote>
+  <p>/src/components/ShoppingApp.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+import { useState } from 'react'
+import ShoppingList from './ShoppingList'
+import AddPopularProduct from './AddPopularProduct'
+
+const ShoppingApp = () =&gt; {
+    const [shopList, setShopList] = useState([])
+
+    const addToShopList = (product) =&gt; {
+        setShopList([...shopList, product])
+    }
+
+    const removeFromShopList = (product) =&gt; {
+        setShopList(shopList.filter((el) =&gt; el !== product))
+    }
+    return (
+        &lt;main className="row"&gt;
+            &lt;section className="col-lg-8"&gt;
+                &lt;ShoppingList
+                    shopList={shopList}
+                    removeFromShopList={removeFromShopList}
+                    addToShopList={addToShopList}
+                /&gt;
+            &lt;/section&gt;
+            &lt;section className="col-lg-4"&gt;
+                &lt;AddPopularProduct
+                    shopList={shopList}
+                    addToShopList={addToShopList}
+                /&gt;
+            &lt;/section&gt;
+        &lt;/main&gt;
+    )
+}
+
+export default ShoppingApp
+</code></pre>
+<h2 id="shoppinglistjs">ShoppingList.js</h2>
+<blockquote>
+  <p>/src/components/ShoppingList.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react'
+import Product from './Product'
+import { useState } from 'react'
+
+const ShoppingList = (props) =&gt; {
+    const { shopList, removeFromShopList } = props
+
+    const [filter, setFilter] = useState('')
+
+    const filteredList = shopList.filter((el) =&gt;
+        el.trim().toLowerCase().startsWith(filter.trim().toLowerCase())
+    )
+    return (
+        &lt;&gt;
+            &lt;h2 className="mb-3 h4"&gt;Produits à acheter ({shopList.length}):&lt;/h2&gt;
+            &lt;div className="input-group mb-3"&gt;
+                &lt;span
+                    role="img"
+                    aria-label="search"
+                    className="input-group-text"
+                &gt;
+                    🔎
+                &lt;/span&gt;
+                &lt;input
+                    type="search"
+                    value={filter}
+                    onChange={(e) =&gt; setFilter(e.target.value)}
+                    placeholder="Rechercher dans votre liste des courses ..."
+                    aria-label="Chercher"
+                    className="form-control"
+                /&gt;
+            &lt;/div&gt;
+            {filter &amp;&amp; (
+                &lt;p className="d-flex justify-content-between"&gt;
+                    &lt;span&gt;
+                        Produits qui commencent par &lt;i&gt;{filter}&lt;/i&gt;
+                    &lt;/span&gt;
+                    &lt;button
+                        className="btn btn-light btn-sm"
+                        onClick={() =&gt; setFilter('')}
+                    &gt;
+                        &lt;span role="img" aria-hidden&gt;
+                            🔄
+                        &lt;/span&gt;{' '}
+                        Réinitialiser
+                    &lt;/button&gt;
+                &lt;/p&gt;
+            )}
+            &lt;ol className="list-group mb-3 shadow"&gt;
+                {filteredList.map((el) =&gt; {
+                    return (
+                        &lt;li className="list-group-item" key={el}&gt;
+                            &lt;Product
+                                product={el}
+                                removeFromShopList={removeFromShopList}
+                            /&gt;
+                        &lt;/li&gt;
+                    )
+                })}
+            &lt;/ol&gt;
+        &lt;/&gt;
+    )
+}
+
+export default ShoppingList
+</code></pre>
+</body>
+</html>

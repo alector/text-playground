@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+
+<style type="text/css">
+
+    @page {
+        @bottom {
+            content: counter(page)
+        }
+    }
+
+@media print {
+    h2 {
+       page-break-before: always;
+
+    }
+    .number {
+    background:#ccc;
+    border-radius: 5px;
+    padding:2px;
+
+    }
+    xmp {
+        white-space: pre-wrap;
+        font-family: "Monaco"; 
+        font-size:14px;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        font-family: "Monaco"; 
+        font-size:14px;
+
+    }
+
+    code {
+        font-family: "Monaco"; 
+        font-size:14px;
+
+    }
+
+blockquote p {
+    text-align:center;
+    margin-left:0;
+    margin-right:0;
+    font-size:20px;
+    border:1px solid black;
+    width:100%;
+}
+}
+
+h2, blockquote {
+font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+
+}
+
+.fas,
+            .far {
+                margin-right: 5px;
+            }
+            .folder {
+                margin-bottom:5px;
+                font-weight: bold;
+            }
+
+            .file {
+                padding-left: 0.3rem;
+                                margin-bottom:5px;
+
+            }
+
+            .x {
+                margin-left: 1rem;
+            }
+
+            .xx {
+                margin-left: 2rem;
+            }
+
+            .xxx {
+                margin-left: 3rem;
+            }
+
+         .xxxx {
+                margin-left: 4rem;
+            }
+
+            .xxxxx {
+                margin-left: 5rem;
+            }
+
+            .xxxxxx {
+                margin-left: 6rem;
+            }
+
+
+</style>
+</head>
+<body>  <h1><i class="fas fa-code"></i>  008-Videos-hooks</h1>
+<h2 id="contents">Contents</h2>
+<div class="filetree"><div class="folder x"><span class="fas fa-folder"></span>008-Videos-hooks</div>
+<div class="file x"><span class="far fa-file-alt"></span>package.json</div>
+<div class="folder xx"><span class="fas fa-folder"></span>public</div>
+<div class="file xx"><span class="far fa-file-alt"></span>index.html</div>
+<div class="file xx"><span class="far fa-file-alt"></span>manifest.json</div>
+<div class="folder xx"><span class="fas fa-folder"></span>src</div>
+<div class="file xx"><span class="far fa-file-alt"></span>index.js</div>
+<div class="folder xxx"><span class="fas fa-folder"></span>apis</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>youtube.js</div>
+<div class="folder xxx"><span class="fas fa-folder"></span>components</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>App.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>SearchBar.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>VideoDetail.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>VideoItem.css</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>VideoItem.js</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>VideoList.js</div>
+<div class="folder xxx"><span class="fas fa-folder"></span>hooks</div>
+<div class="file xxx"><span class="far fa-file-alt"></span>useVideos.js</div></div>
+<h2 id="packagejson">package.json</h2>
+<blockquote>
+  <p>/package.json</p>
+</blockquote>
+<pre><code class="json language-json">{
+  "name": "videos",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.18.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "&gt;0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+</code></pre>
+<h2 id="indexhtml">index.html</h2>
+<blockquote>
+  <p>/public/index.html</p>
+</blockquote>
+<pre><code class="html language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+  &lt;meta name="theme-color" content="#000000"&gt;
+  &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"&gt;
+  &lt;!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    --&gt;
+  &lt;link rel="manifest" href="%PUBLIC_URL%/manifest.json"&gt;
+  &lt;!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    --&gt;
+  &lt;title&gt;React App&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;noscript&gt;
+    You need to enable JavaScript to run this app.
+  &lt;/noscript&gt;
+  &lt;div id="root"&gt;&lt;/div&gt;
+  &lt;!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the &lt;body&gt; tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    --&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2 id="manifestjson">manifest.json</h2>
+<blockquote>
+  <p>/public/manifest.json</p>
+</blockquote>
+<pre><code class="json language-json">{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+</code></pre>
+<h2 id="indexjs">index.js</h2>
+<blockquote>
+  <p>/src/index.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+
+ReactDOM.render(&lt;App /&gt;, document.querySelector('#root'));
+</code></pre>
+<h2 id="youtubejs">youtube.js</h2>
+<blockquote>
+  <p>/src/apis/youtube.js</p>
+</blockquote>
+<pre><code class="js language-js">import axios from 'axios';
+
+const KEY = 'AIzaSyDVfeUxsJzp8Vs0xnFGlhC2zrllcqbC4zc';
+
+export default axios.create({
+  baseURL: 'https://www.googleapis.com/youtube/v3',
+  params: {
+    part: 'snippet',
+    maxResults: 5,
+    key: KEY,
+  },
+});
+</code></pre>
+<h2 id="appjs">App.js</h2>
+<blockquote>
+  <p>/src/components/App.js</p>
+</blockquote>
+<pre><code class="js language-js">import React, { useState, useEffect } from 'react';
+import SearchBar from './SearchBar';
+import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
+import useVideos from '../hooks/useVideos';
+
+const App = () =&gt; {
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [videos, search] = useVideos('buildings');
+
+  useEffect(() =&gt; {
+    setSelectedVideo(videos[0]);
+  }, [videos]);
+
+  return (
+    &lt;div className="ui container"&gt;
+      &lt;SearchBar onFormSubmit={search} /&gt;
+      &lt;div className="ui grid"&gt;
+        &lt;div className="ui row"&gt;
+          &lt;div className="eleven wide column"&gt;
+            &lt;VideoDetail video={selectedVideo} /&gt;
+          &lt;/div&gt;
+          &lt;div className="five wide column"&gt;
+            &lt;VideoList onVideoSelect={setSelectedVideo} videos={videos} /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default App;
+</code></pre>
+<h2 id="searchbarjs">SearchBar.js</h2>
+<blockquote>
+  <p>/src/components/SearchBar.js</p>
+</blockquote>
+<pre><code class="js language-js">import React, { useState } from 'react';
+
+const SearchBar = ({ onFormSubmit }) =&gt; {
+  const [term, setTerm] = useState('');
+
+  const onSubmit = (event) =&gt; {
+    event.preventDefault();
+
+    onFormSubmit(term);
+  };
+
+  return (
+    &lt;div className="search-bar ui segment"&gt;
+      &lt;form onSubmit={onSubmit} className="ui form"&gt;
+        &lt;div className="field"&gt;
+          &lt;label&gt;Video Search&lt;/label&gt;
+          &lt;input
+            type="text"
+            value={term}
+            onChange={(event) =&gt; setTerm(event.target.value)}
+          /&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default SearchBar;
+</code></pre>
+<h2 id="videodetailjs">VideoDetail.js</h2>
+<blockquote>
+  <p>/src/components/VideoDetail.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react';
+
+const VideoDetail = ({ video }) =&gt; {
+  if (!video) {
+    return &lt;div&gt;Loading...&lt;/div&gt;;
+  }
+
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+
+  return (
+    &lt;div&gt;
+      &lt;div className="ui embed"&gt;
+        &lt;iframe title="video player" src={videoSrc} /&gt;
+      &lt;/div&gt;
+      &lt;div className="ui segment"&gt;
+        &lt;h4 className="ui header"&gt;{video.snippet.title}&lt;/h4&gt;
+        &lt;p&gt;{video.snippet.description}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default VideoDetail;
+</code></pre>
+<h2 id="videoitemcss">VideoItem.css</h2>
+<blockquote>
+  <p>/src/components/VideoItem.css</p>
+</blockquote>
+<pre><code class="css language-css">.video-item {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+}
+
+.video-item.item img {
+  max-width: 180px;
+}
+</code></pre>
+<h2 id="videoitemjs">VideoItem.js</h2>
+<blockquote>
+  <p>/src/components/VideoItem.js</p>
+</blockquote>
+<pre><code class="js language-js">import './VideoItem.css';
+import React from 'react';
+
+const VideoItem = ({ video, onVideoSelect }) =&gt; {
+  return (
+    &lt;div onClick={() =&gt; onVideoSelect(video)} className="video-item item"&gt;
+      &lt;img
+        alt={video.snippet.title}
+        className="ui image"
+        src={video.snippet.thumbnails.medium.url}
+      /&gt;
+      &lt;div className="content"&gt;
+        &lt;div className="header"&gt;{video.snippet.title}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default VideoItem;
+</code></pre>
+<h2 id="videolistjs">VideoList.js</h2>
+<blockquote>
+  <p>/src/components/VideoList.js</p>
+</blockquote>
+<pre><code class="js language-js">import React from 'react';
+import VideoItem from './VideoItem';
+
+const VideoList = ({ videos, onVideoSelect }) =&gt; {
+  const renderedList = videos.map(video =&gt; {
+    return (
+      &lt;VideoItem
+        key={video.id.videoId}
+        onVideoSelect={onVideoSelect}
+        video={video}
+      /&gt;
+    );
+  });
+
+  return &lt;div className="ui relaxed divided list"&gt;{renderedList}&lt;/div&gt;;
+};
+
+export default VideoList;
+</code></pre>
+<h2 id="usevideosjs">useVideos.js</h2>
+<blockquote>
+  <p>/src/hooks/useVideos.js</p>
+</blockquote>
+<pre><code class="js language-js">import { useState, useEffect } from 'react';
+import youtube from '../apis/youtube';
+
+const useVideos = (defaultSearchTerm) =&gt; {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() =&gt; {
+    search(defaultSearchTerm);
+  }, [defaultSearchTerm]);
+
+  const search = async (term) =&gt; {
+    const response = await youtube.get('/search', {
+      params: {
+        q: term,
+      },
+    });
+
+    setVideos(response.data.items);
+  };
+
+  return [videos, search];
+};
+
+export default useVideos;
+</code></pre>
+</body>
+</html>
